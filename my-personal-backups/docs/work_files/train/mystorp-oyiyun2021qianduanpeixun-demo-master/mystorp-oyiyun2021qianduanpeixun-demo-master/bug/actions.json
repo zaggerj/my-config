@@ -1,0 +1,15 @@
+{
+    "opened": "创建",
+    "bugconfirmed": "确认",
+    "edited": "编辑",
+    "assigned": "指派给",
+    "resolved": "解决为",
+    "commented": "备注",
+    "activated": "激活给",
+    "closed": "关闭",
+    "changed": "变更",
+    "reviewed": "评审",
+    "linked2project": "关联到",
+    "unlinkedfromplan": "从计划中移除",
+    "deleted": "删除"
+}

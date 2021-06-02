@@ -1,0 +1,7 @@
+coc/
+configstore/
+.dropbox
+.dropbox.cache/
+desktop.ini
+jesseduffield/lazygit/
+!jesseduffield/lazygit/*.yml

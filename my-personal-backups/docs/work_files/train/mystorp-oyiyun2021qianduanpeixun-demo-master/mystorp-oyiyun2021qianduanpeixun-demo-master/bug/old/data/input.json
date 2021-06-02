@@ -1,0 +1,636 @@
+[
+    {
+        "environment": "Tiny Face Detector",
+        "InputSize": "512",
+        "normalImgs": "彩图",
+        "data": [
+            [
+                {
+                    "name": "n0.jpg",
+                    "width": 500,
+                    "height": 313,
+                    "spend": 827.5649999995949
+                },
+                {
+                    "name": "n1.jpg",
+                    "width": 500,
+                    "height": 750,
+                    "spend": 828.0349999986356
+                },
+                {
+                    "name": "n2.jpg",
+                    "width": 500,
+                    "height": 496,
+                    "spend": 828.1450000067707
+                },
+                {
+                    "name": "n3.jpg",
+                    "width": 500,
+                    "height": 499,
+                    "spend": 828.2400000025518
+                },
+                {
+                    "name": "n4.jpg",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 828.3349999983329
+                },
+                {
+                    "name": "n5.jpg",
+                    "width": 500,
+                    "height": 500,
+                    "spend": 828.365000008489
+                },
+                {
+                    "name": "n6.jpg",
+                    "width": 250,
+                    "height": 311,
+                    "spend": 828.5150000010617
+                },
+                {
+                    "name": "n7.jpg",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 828.6099999968428
+                },
+                {
+                    "name": "n8.jpg",
+                    "width": 480,
+                    "height": 854,
+                    "spend": 828.73500000278
+                },
+                {
+                    "name": "n9.jpg",
+                    "width": 450,
+                    "height": 600,
+                    "spend": 829.4849999947473
+                }
+            ],
+            [
+                {
+                    "name": "n0.jpg",
+                    "width": 500,
+                    "height": 313,
+                    "spend": 768.35499999288
+                },
+                {
+                    "name": "n1.jpg",
+                    "width": 500,
+                    "height": 750,
+                    "spend": 769.7800000023562
+                },
+                {
+                    "name": "n2.jpg",
+                    "width": 500,
+                    "height": 496,
+                    "spend": 770.474999997532
+                },
+                {
+                    "name": "n3.jpg",
+                    "width": 500,
+                    "height": 499,
+                    "spend": 771.1199999903329
+                },
+                {
+                    "name": "n4.jpg",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 771.4799999957904
+                },
+                {
+                    "name": "n5.jpg",
+                    "width": 500,
+                    "height": 500,
+                    "spend": 771.7200000042794
+                },
+                {
+                    "name": "n6.jpg",
+                    "width": 250,
+                    "height": 311,
+                    "spend": 771.8650000024354
+                },
+                {
+                    "name": "n7.jpg",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 771.9549999892479
+                },
+                {
+                    "name": "n8.jpg",
+                    "width": 480,
+                    "height": 854,
+                    "spend": 772.9450000042561
+                },
+                {
+                    "name": "n9.jpg",
+                    "width": 450,
+                    "height": 600,
+                    "spend": 773.1050000002142
+                }
+            ],
+            [
+                {
+                    "name": "n0.jpg",
+                    "width": 500,
+                    "height": 313,
+                    "spend": 756.905000002007
+                },
+                {
+                    "name": "n1.jpg",
+                    "width": 500,
+                    "height": 750,
+                    "spend": 757.2050000017043
+                },
+                {
+                    "name": "n2.jpg",
+                    "width": 500,
+                    "height": 496,
+                    "spend": 757.3750000010477
+                },
+                {
+                    "name": "n3.jpg",
+                    "width": 500,
+                    "height": 499,
+                    "spend": 757.5650000071619
+                },
+                {
+                    "name": "n4.jpg",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 757.7350000065053
+                },
+                {
+                    "name": "n5.jpg",
+                    "width": 500,
+                    "height": 500,
+                    "spend": 757.8700000012759
+                },
+                {
+                    "name": "n6.jpg",
+                    "width": 250,
+                    "height": 311,
+                    "spend": 758.0599999928381
+                },
+                {
+                    "name": "n7.jpg",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 758.3000000013271
+                },
+                {
+                    "name": "n8.jpg",
+                    "width": 480,
+                    "height": 854,
+                    "spend": 758.4700000006706
+                },
+                {
+                    "name": "n9.jpg",
+                    "width": 450,
+                    "height": 600,
+                    "spend": 758.6049999954412
+                }
+            ],
+            [
+                {
+                    "name": "n0.jpg",
+                    "width": 500,
+                    "height": 313,
+                    "spend": 732.8249999991385
+                },
+                {
+                    "name": "n1.jpg",
+                    "width": 500,
+                    "height": 750,
+                    "spend": 733.1799999956274
+                },
+                {
+                    "name": "n2.jpg",
+                    "width": 500,
+                    "height": 496,
+                    "spend": 733.3749999961583
+                },
+                {
+                    "name": "n3.jpg",
+                    "width": 500,
+                    "height": 499,
+                    "spend": 733.5350000066683
+                },
+                {
+                    "name": "n4.jpg",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 733.6900000082096
+                },
+                {
+                    "name": "n5.jpg",
+                    "width": 500,
+                    "height": 500,
+                    "spend": 733.829999997397
+                },
+                {
+                    "name": "n6.jpg",
+                    "width": 250,
+                    "height": 311,
+                    "spend": 733.9650000067195
+                },
+                {
+                    "name": "n7.jpg",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 734.0950000070734
+                },
+                {
+                    "name": "n8.jpg",
+                    "width": 480,
+                    "height": 854,
+                    "spend": 734.230000001844
+                },
+                {
+                    "name": "n9.jpg",
+                    "width": 450,
+                    "height": 600,
+                    "spend": 734.3649999966146
+                }
+            ],
+            [
+                {
+                    "name": "n0.jpg",
+                    "width": 500,
+                    "height": 313,
+                    "spend": 728.6699999967823
+                },
+                {
+                    "name": "n1.jpg",
+                    "width": 500,
+                    "height": 750,
+                    "spend": 728.9000000018859
+                },
+                {
+                    "name": "n2.jpg",
+                    "width": 500,
+                    "height": 496,
+                    "spend": 729.0150000044378
+                },
+                {
+                    "name": "n3.jpg",
+                    "width": 500,
+                    "height": 499,
+                    "spend": 729.1499999992084
+                },
+                {
+                    "name": "n4.jpg",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 729.3050000007497
+                },
+                {
+                    "name": "n5.jpg",
+                    "width": 500,
+                    "height": 500,
+                    "spend": 729.4249999977183
+                },
+                {
+                    "name": "n6.jpg",
+                    "width": 250,
+                    "height": 311,
+                    "spend": 729.5199999934994
+                },
+                {
+                    "name": "n7.jpg",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 729.6000000060303
+                },
+                {
+                    "name": "n8.jpg",
+                    "width": 480,
+                    "height": 854,
+                    "spend": 729.670000000624
+                },
+                {
+                    "name": "n9.jpg",
+                    "width": 450,
+                    "height": 600,
+                    "spend": 729.749999998603
+                }
+            ]
+        ]
+    },
+    {
+        "environment": "Tiny Face Detector",
+        "InputSize": "512",
+        "blackImgs": "黑白图",
+        "data": [
+            [
+                {
+                    "name": "b0.png",
+                    "width": 500,
+                    "height": 313,
+                    "spend": 772.5649999920279
+                },
+                {
+                    "name": "b1.png",
+                    "width": 500,
+                    "height": 750,
+                    "spend": 772.9899999976624
+                },
+                {
+                    "name": "b2.png",
+                    "width": 500,
+                    "height": 496,
+                    "spend": 773.18999999261
+                },
+                {
+                    "name": "b3.png",
+                    "width": 500,
+                    "height": 499,
+                    "spend": 777.2899999981746
+                },
+                {
+                    "name": "b4.png",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 777.6250000024447
+                },
+                {
+                    "name": "b5.png",
+                    "width": 500,
+                    "height": 500,
+                    "spend": 780.1249999902211
+                },
+                {
+                    "name": "b6.png",
+                    "width": 250,
+                    "height": 311,
+                    "spend": 780.6050000071991
+                },
+                {
+                    "name": "b7.png",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 780.8749999967404
+                },
+                {
+                    "name": "b8.png",
+                    "width": 480,
+                    "height": 854,
+                    "spend": 781.0650000028545
+                },
+                {
+                    "name": "b9.png",
+                    "width": 450,
+                    "height": 600,
+                    "spend": 781.2149999954272
+                }
+            ],
+            [
+                {
+                    "name": "b0.png",
+                    "width": 500,
+                    "height": 313,
+                    "spend": 661.950000008801
+                },
+                {
+                    "name": "b1.png",
+                    "width": 500,
+                    "height": 750,
+                    "spend": 662.1199999935925
+                },
+                {
+                    "name": "b2.png",
+                    "width": 500,
+                    "height": 496,
+                    "spend": 662.2300000017276
+                },
+                {
+                    "name": "b3.png",
+                    "width": 500,
+                    "height": 499,
+                    "spend": 662.2999999963213
+                },
+                {
+                    "name": "b4.png",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 662.3899999976857
+                },
+                {
+                    "name": "b5.png",
+                    "width": 500,
+                    "height": 500,
+                    "spend": 662.4599999922793
+                },
+                {
+                    "name": "b6.png",
+                    "width": 250,
+                    "height": 311,
+                    "spend": 662.5250000070082
+                },
+                {
+                    "name": "b7.png",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 662.5999999960186
+                },
+                {
+                    "name": "b8.png",
+                    "width": 480,
+                    "height": 854,
+                    "spend": 662.6600000017788
+                },
+                {
+                    "name": "b9.png",
+                    "width": 450,
+                    "height": 600,
+                    "spend": 662.7250000019558
+                }
+            ],
+            [
+                {
+                    "name": "b0.png",
+                    "width": 500,
+                    "height": 313,
+                    "spend": 688.3300000044983
+                },
+                {
+                    "name": "b1.png",
+                    "width": 500,
+                    "height": 750,
+                    "spend": 688.5400000028312
+                },
+                {
+                    "name": "b2.png",
+                    "width": 500,
+                    "height": 496,
+                    "spend": 688.6999999987893
+                },
+                {
+                    "name": "b3.png",
+                    "width": 500,
+                    "height": 499,
+                    "spend": 688.8350000081118
+                },
+                {
+                    "name": "b4.png",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 688.9850000006845
+                },
+                {
+                    "name": "b5.png",
+                    "width": 500,
+                    "height": 500,
+                    "spend": 689.0999999886844
+                },
+                {
+                    "name": "b6.png",
+                    "width": 250,
+                    "height": 311,
+                    "spend": 689.2050000024028
+                },
+                {
+                    "name": "b7.png",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 689.3100000015693
+                },
+                {
+                    "name": "b8.png",
+                    "width": 480,
+                    "height": 854,
+                    "spend": 689.4299999985378
+                },
+                {
+                    "name": "b9.png",
+                    "width": 450,
+                    "height": 600,
+                    "spend": 689.5500000100583
+                }
+            ],
+            [
+                {
+                    "name": "b0.png",
+                    "width": 500,
+                    "height": 313,
+                    "spend": 710.9849999978906
+                },
+                {
+                    "name": "b1.png",
+                    "width": 500,
+                    "height": 750,
+                    "spend": 711.2249999918276
+                },
+                {
+                    "name": "b2.png",
+                    "width": 500,
+                    "height": 496,
+                    "spend": 711.3899999967543
+                },
+                {
+                    "name": "b3.png",
+                    "width": 500,
+                    "height": 499,
+                    "spend": 711.5300000004936
+                },
+                {
+                    "name": "b4.png",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 711.6850000020349
+                },
+                {
+                    "name": "b5.png",
+                    "width": 500,
+                    "height": 500,
+                    "spend": 711.8099999934202
+                },
+                {
+                    "name": "b6.png",
+                    "width": 250,
+                    "height": 311,
+                    "spend": 711.9149999925867
+                },
+                {
+                    "name": "b7.png",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 712.0449999929406
+                },
+                {
+                    "name": "b8.png",
+                    "width": 480,
+                    "height": 854,
+                    "spend": 712.165000004461
+                },
+                {
+                    "name": "b9.png",
+                    "width": 450,
+                    "height": 600,
+                    "spend": 712.2700000036275
+                }
+            ],
+            [
+                {
+                    "name": "b0.png",
+                    "width": 500,
+                    "height": 313,
+                    "spend": 701.1050000000978
+                },
+                {
+                    "name": "b1.png",
+                    "width": 500,
+                    "height": 750,
+                    "spend": 701.1599999968894
+                },
+                {
+                    "name": "b2.png",
+                    "width": 500,
+                    "height": 496,
+                    "spend": 701.2350000004517
+                },
+                {
+                    "name": "b3.png",
+                    "width": 500,
+                    "height": 499,
+                    "spend": 701.310000004014
+                },
+                {
+                    "name": "b4.png",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 701.390000001993
+                },
+                {
+                    "name": "b5.png",
+                    "width": 500,
+                    "height": 500,
+                    "spend": 701.4699999999721
+                },
+                {
+                    "name": "b6.png",
+                    "width": 250,
+                    "height": 311,
+                    "spend": 701.535000000149
+                },
+                {
+                    "name": "b7.png",
+                    "width": 500,
+                    "height": 375,
+                    "spend": 701.6399999993155
+                },
+                {
+                    "name": "b8.png",
+                    "width": 480,
+                    "height": 854,
+                    "spend": 701.7199999972945
+                },
+                {
+                    "name": "b9.png",
+                    "width": 450,
+                    "height": 600,
+                    "spend": 701.7999999952735
+                }
+            ]
+        ]
+    }
+]

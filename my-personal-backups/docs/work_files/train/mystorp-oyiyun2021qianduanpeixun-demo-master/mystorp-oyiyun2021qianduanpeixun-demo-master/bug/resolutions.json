@@ -1,0 +1,12 @@
+{
+    "": "无",
+    "fixed": "已解决",
+    "bydesign": "设计如此",
+    "duplicate": "重复BUG",
+    "external": "外部原因",
+    "notrepro": "无法复现",
+    "willnotfix": "不予解决",
+    "postponed": "下个版本解决",
+    "submissionerror": "提交错误",
+    "nextedition": "下个版本解决"
+}

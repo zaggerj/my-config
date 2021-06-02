@@ -1,0 +1,258 @@
+<div data-widget-grid class="jarviswidget custom-grey-area" style="margin-top: 15px;">
+  <!-- widget div-->
+  <div class="noborder sysSet">
+    <div class="widget-body no-padding">
+      <div ng-controller="vdiSystemRecycleController as RecycleCtrl">
+        <h4 localize='资源回收'></h4>
+        <span class="desk-border">&nbsp;</span>
+        <div class="form-group">
+          <div class="col-xs-6" style="padding-left: 25px;">
+            <label class="col-xs-12 control-label" for="time" style="font-weight: 700" localize="教学桌面"></label>
+            <div class="col-xs-12">
+              <div class="teach-desk">
+                <label class="checkbox-inline checkbox-align week-label">
+                  <input class="checkbox" type="checkbox" name="start"
+                    ng-disabled="!RecycleCtrl.publicEdit || RecycleCtrl.publicSave"
+                    ng-model="RecycleCtrl.public.set_aside">
+                  <span localize="闲置"></span>&nbsp;
+                  <input class="form-control inline" input-number type="text" name="hours"
+                    style="width:50px;padding-left: 5px;"
+                    data-ng-pattern="/^(00[5-9]|0[5-9]|[5-9]|0[1-9][0-9]|[1-9][0-9]|[1-6][0-9][0-9]|7[0-1][0-9]|60)$/"
+                    placeholder="5-60" maxlength="3" min="5" max="60" ng-model="RecycleCtrl.public.keepalive_minutes"
+                    ng-disabled="!RecycleCtrl.publicEdit || RecycleCtrl.publicSave || !RecycleCtrl.public.set_aside">
+                  <span localize="after-minutes"></span>
+                  <select class="form-control inline" style="width: 100px"
+                    ng-disabled="!RecycleCtrl.publicEdit || RecycleCtrl.publicSave || !RecycleCtrl.public.set_aside"
+                    ng-model="RecycleCtrl.public.run_aside">
+                    <option value="suspend" localize="挂起"></option>
+                    <option value="cancel" localize="注销"></option>
+                    <option value="shutdown" localize="关机"></option>
+                  </select>
+                </label>
+                <div class="offline-connect">
+                  <label class="checkbox-inline checkbox-align week-label">
+                    <input class="checkbox" type="checkbox" name="start"
+                      ng-disabled="!RecycleCtrl.publicEdit || RecycleCtrl.publicSave"
+                      ng-model="RecycleCtrl.public.active">
+                    <span localize="断开连接"></span>&nbsp;
+                    <input class="form-control inline" input-number type="text" name="hours"
+                      style="width:70px;padding-left: 5px;"
+                      data-ng-pattern="/^(00[5-9]|0[5-9]|[5-9]|0[1-9][0-9]|[1-9][0-9]|[1-6][0-9][0-9]|7[0-1][0-9]|720)$/"
+                      placeholder="5-720" maxlength="3" min="5" max="720" ng-model="RecycleCtrl.public.broken_min"
+                      ng-disabled="!RecycleCtrl.publicEdit || RecycleCtrl.publicSave || !RecycleCtrl.public.active">
+                    <span localize="after-minutes"></span>
+                    <select class="form-control inline" style="width: 100px"
+                      ng-disabled="!RecycleCtrl.publicEdit || RecycleCtrl.publicSave || !RecycleCtrl.public.active"
+                      ng-model="RecycleCtrl.public.run" ng-disabled="!RecycleCtrl.publicEdit || RecycleCtrl.publicSave">
+                      <option value="shutdown" localize="自然关机"></option>
+                      <option value="suspend" localize="挂起"></option>
+                    </select><br />
+                  </label>
+                </div>
+                <img class='recycleLoading' src="img/loadingtext.gif" data-ng-if="RecycleCtrl.publicSave" height="24"
+                  width="24" alt="">
+                <div class="btn btn-default btn-update" ng-disabled="RecycleCtrl.public_loading"
+                  ng-click="RecycleCtrl.publicEdit = true" ng-if="!RecycleCtrl.publicEdit && !RecycleCtrl.publicSave"
+                  localize="修改"></div>
+                <div class="btn btn-default btn-save"
+                  ng-disabled='(RecycleCtrl.public.set_aside && !RecycleCtrl.public.keepalive_minutes) || (RecycleCtrl.public.active && !RecycleCtrl.public.broken_min)'
+                  ng-click="RecycleCtrl.saveRecycle('public')" ng-if="RecycleCtrl.publicEdit && !RecycleCtrl.publicSave"
+                  localize="保存"></div>
+                <div class="btn btn-default btn-cencel"
+                  ng-click="RecycleCtrl.publicEdit = false;RecycleCtrl.getRecycle('public')"
+                  ng-if="RecycleCtrl.publicEdit && !RecycleCtrl.publicSave" localize="取消"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <label class="col-xs-12 control-label" for="time" style="font-weight: 700" localize="个人桌面"></label>
+            <div class="col-xs-12">
+              <div class="teach-desk">
+                <label class="checkbox-inline checkbox-align week-label">
+                  <input class="checkbox" type="checkbox" name="start"
+                    ng-disabled="!RecycleCtrl.personEdit || RecycleCtrl.personSave"
+                    ng-model="RecycleCtrl.person.set_aside">
+                  <span localize="闲置"></span>&nbsp;
+                  <input class="form-control inline" input-number type="text" name="hours"
+                    style="width:50px;padding-left: 5px;"
+                    data-ng-pattern="/^(00[5-9]|0[5-9]|[5-9]|0[1-9][0-9]|[1-9][0-9]|[1-6][0-9][0-9]|7[0-1][0-9]|60)$/"
+                    placeholder="5-60" maxlength="3" min="5" max="60" ng-model="RecycleCtrl.person.keepalive_minutes"
+                    ng-disabled="!RecycleCtrl.personEdit || RecycleCtrl.personSave || !RecycleCtrl.person.set_aside">
+                  <span localize="after-minutes"></span>
+                  <select class="form-control inline" style="width: 100px"
+                    ng-disabled="!RecycleCtrl.personEdit || RecycleCtrl.personSave || !RecycleCtrl.person.set_aside"
+                    ng-model="RecycleCtrl.person.run_aside">
+                    <option value="suspend" localize="挂起"></option>
+                    <option value="cancel" localize="注销"></option>
+                    <option value="shutdown" localize="关机"></option>
+                  </select>
+                </label>
+                <div class="offline-connect">
+                  <label class="checkbox-inline checkbox-align week-label">
+                    <input class="checkbox" type="checkbox" name="start"
+                      ng-disabled="!RecycleCtrl.personEdit || RecycleCtrl.personSave"
+                      ng-model="RecycleCtrl.person.active">
+                    <span localize="断开连接"></span>&nbsp;
+                    <input type="text" class="form-control inline" input-number name="hours"
+                      style="width:70px;padding-left: 5px;"
+                      data-ng-pattern="/^(00[5-9]|0[5-9]|[5-9]|0[1-9][0-9]|[1-9][0-9]|[1-6][0-9][0-9]|7[0-1][0-9]|720)$/"
+                      placeholder="5-720" maxlength="3" min="5" max="720" ng-model="RecycleCtrl.person.broken_min"
+                      ng-disabled="!RecycleCtrl.personEdit || RecycleCtrl.personSave || !RecycleCtrl.person.active">
+                    <span localize="after-minutes"></span>
+                    <select class="form-control inline" style="width: 100px" ng-model="RecycleCtrl.person.run"
+                      ng-disabled="!RecycleCtrl.personEdit || RecycleCtrl.personSave || !RecycleCtrl.person.active">
+                      <option value="shutdown" localize="自然关机"></option>
+                      <option value="suspend" localize="挂起"></option>
+                    </select><br />
+                  </label>
+                </div>
+                <img class='recycleLoading' src="img/loadingtext.gif" data-ng-if="RecycleCtrl.personSave" height="24"
+                  width="24" alt="">
+                <div class="btn btn-default btn-update" ng-if="!RecycleCtrl.personEdit && !RecycleCtrl.personSave"
+                  ng-disabled="RecycleCtrl.person_loading" ng-click="RecycleCtrl.personEdit = true" localize="更改"></div>
+                <div class="btn btn-default btn-save"
+                  ng-disabled='(RecycleCtrl.person.set_aside && !RecycleCtrl.person.keepalive_minutes) || (RecycleCtrl.person.active && !RecycleCtrl.person.broken_min)'
+                  ng-if="RecycleCtrl.personEdit && !RecycleCtrl.personSave" ng-click="RecycleCtrl.saveRecycle('person')"
+                  localize="保存"></div>
+                <div class="btn btn-default btn-cencel" ng-if="RecycleCtrl.personEdit && !RecycleCtrl.personSave"
+                  ng-click="RecycleCtrl.personEdit = false;RecycleCtrl.getRecycle('person')" localize="取消"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-controller="spiceConnectController as spiceCtrl" style="clear: both;">
+        <h4 localize='连接模式'></h4>
+        <span class="desk-border">&nbsp;</span>
+        <form class="form-horizontal" name="spiceFrom" method="post" ng-submit="spiceFrom.$valid" novalidate>
+          <div class="form-group">
+            <label class="control-label col-xs-1" data-localize="连接模式"></label>
+            <div class="col-xs-2" style="white-space: nowrap;">
+              <select class="form-control inline" ng-model="spiceCtrl.mode"
+                ng-disabled="!spiceCtrl.edit || spiceCtrl.save">
+                <option value="always" localize="高质量"></option>
+                <option value="auto_glz" localize="高流畅性"></option>
+              </select>
+              <label>
+                <a href="javascript:void(0);" style="margin-left: 10px" rel="popover-hover"
+                  localize-tip='spiceConnectTip' data-placement="right" data-html="true"><i
+                    class="fa fa-question-circle"></i></a>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-1"></label>
+            <div class="col-xs-2 text-right">
+              <img class='recycleLoading' src="img/loadingtext.gif" data-ng-if="spiceCtrl.save" height="24" width="24"
+                alt="">
+              <div class="btn btn-default" ng-disabled="spiceCtrl.loading" ng-click="spiceCtrl.edit = true"
+                ng-if="!spiceCtrl.edit && !spiceCtrl.save" localize="修改"></div>
+              <div class="btn btn-default" ng-click="spiceCtrl.saveSpiceConnect()"
+                ng-if="spiceCtrl.edit && !spiceCtrl.save" localize="保存"></div>
+              <div class="btn btn-default" ng-click="spiceCtrl.edit = false;spiceCtrl.getSpiceConnect()"
+                ng-if="spiceCtrl.edit && !spiceCtrl.save" localize="取消" style="margin-left: 10px;"></div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- x86显示相关的代码，arm隐藏 -->
+      <div ng-if="PROD.isVPC" ng-controller='vdiSystemAutoclearController as clearCtrl'>
+        <h4 localize='共享磁盘自动清理时间'></h4>
+        <span class="desk-border">&nbsp;</span>
+        <form class="form-horizontal" name="clearFrom" method="post" ng-submit="clearFrom.$valid"
+          style="padding-left: 25px;clear:both;overflow: hidden;" novalidate>
+          <!-- <label class="control-label">
+                        <input type="checkbox" class="checkbox"
+                            ng-disabled='!clearCtrl.edit || clearCtrl.save' data-ng-model="clearCtrl.enable">
+                        <span data-localize="启用"></span>
+                    </label> -->
+          <div class="form-group col-xs-12" style="font-weight: 700" localize="教学桌面"></div>
+          <div class="form-group col-xs-5 clearTime">
+            <label class="control-label col-xs-1" data-localize="每" style="padding-right: 0"></label>
+            <div class="col-xs-5">
+              <select class="form-control inline" ng-disabled='!clearCtrl.edit || clearCtrl.save'
+                ng-model="clearCtrl.day">
+                <option value="Mon" data-localize="周一">周一</option>
+                <option value="Tue" data-localize="周二">周二</option>
+                <option value="Wed" data-localize="周三">周三</option>
+                <option value="Thu" data-localize="周四">周四</option>
+                <option value="Fri" data-localize="周五">周五</option>
+                <option value="Sat" data-localize="周六">周六</option>
+                <option value="Sun" data-localize="周日">周日</option>
+              </select>
+            </div>
+            <div class="col-xs-2 hour">
+              <input input-number class="form-control" type="text" data-ng-pattern="/^(0[0-9]|[0-9]|1[0-9]|2[0-3])$/"
+                maxlength="2" min="0" max="23" required ng-model="clearCtrl.hours"
+                ng-disabled='!clearCtrl.edit || clearCtrl.save' />
+            </div>
+            <div class="col-xs-2 minute">
+              <input input-number class="form-control" type="text" data-ng-pattern="/^(0[0-9]|[0-9]|[1-5][0-9])$/"
+                maxlength="2" min="0" max="59" required ng-model="clearCtrl.minutes"
+                ng-disabled='!clearCtrl.edit || clearCtrl.save' />
+            </div>
+            <div class="col-xs-2 second">
+              <input input-number class="form-control" data-ng-pattern="/^(0[0-9]|[0-9]|[1-5][0-9])$/" maxlength="2"
+                min="0" max="59" required ng-model="clearCtrl.seconds" ng-disabled='!clearCtrl.edit || clearCtrl.save'
+                type="text" />
+            </div>
+            <div class="col-xs-12 text-right" style="padding-right: 0;margin-top: 15px;">
+              <img class='recycleLoading' src="img/loadingtext.gif" data-ng-if="clearCtrl.save" height="24" width="24"
+                alt="">
+              <div class="btn btn-default" ng-disabled="clearCtrl.loading" ng-click="clearCtrl.edit = true"
+                ng-if="!clearCtrl.edit && !clearCtrl.save" localize="修改"></div>
+              <div class="btn btn-default" ng-disabled="!clearCtrl.hours || !clearCtrl.minutes || !clearCtrl.seconds"
+                ng-click="clearCtrl.saveClearTime()" ng-if="clearCtrl.edit && !clearCtrl.save" localize="保存"></div>
+              <div class="btn btn-default" ng-click="clearCtrl.edit = false;clearCtrl.getClearTime()"
+                ng-if="clearCtrl.edit && !clearCtrl.save" localize="取消" style="margin-left: 10px;"></div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- 自助快照恢复 -->
+      <div ng-controller="SnapshotConfCtrl">
+        <h4 localize="自助快照恢复"></h4>
+        <span class="desk-border">&nbsp;</span>
+        <form class="form-horizontal" style="padding-left: 25px;clear:both;overflow: hidden;" novalidate>
+          <div class="form-group">
+            <div class="col-xs-12">
+              <label>
+                <input type="checkbox" class="checkbox" ng-disabled="m.loading || m.saving" ng-model="m.enabled"
+                  ng-change="save()">
+                <span>开启</span>
+              </label>
+              <img data-ng-if="m.loading || m.saving" src="img/loadingtext.gif" height="24" width="24" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12">
+              <span style="color: #999;" data-localize="自助快照恢复TIP"></span>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div ng-controller="logoCustome" class="logoCustom">
+        <h4 localize='终端登录界面LOGO'></h4>
+        <span class="desk-border">&nbsp;</span>
+        <form class="form-horizontal form-pl25">
+          <div class="form-group">
+            <div class="inline-b-md">
+              <div class="left-tips" data-localize="CUSTOM_PNG_TIP"></div>
+              <div class="inline-b-md">
+                <button class="btn btn-default" id="clientUploader" ui-upload="image" ui-upload-options="clientOpt">
+                  <span data-localize="修改"></span>
+                </button>
+                <button class="btn btn-default" data-ng-click="recoverClientLogo()" localize="恢复默认值"></button>
+              </div>
+              <img class='img-bg' ng-src="{{clientLogoUrl}}">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- widget div end -->
+</div>

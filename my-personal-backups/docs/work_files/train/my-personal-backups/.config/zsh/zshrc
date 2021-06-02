@@ -1,0 +1,280 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+ZSH_DISABLE_COMPFIX=true
+export ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="agnoster"
+DEFAULT_USER=""
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  git extract zsh-autosuggestions autojump zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# 环境变量start==========================================================
+export PATH=$PATH:/usr/local/go/bin
+export LS_OPTIONS="--color=auto" # 如果没有指定，则自动选择颜色
+export CLICOLOR="Yes" #是否输出颜色
+CLICOLOR=1
+LSCOLORS=gxfxcxdxbxegedabagacad
+export TERM=xterm-256color
+
+export GOPATH=$HOME/go
+
+export TERM=xterm-256color
+export TERM_ITALICS=true
+export RANGER_LOAD_DEFAULT_RC="false"
+
+export EDITOR=nvim
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
+export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
+# prefix 定义git仓库前缀
+export WORK_OUTER_GIT_HOST=http://bbt.os-easy.com
+export WORK_GIT_HOST=git@172.16.203.254
+
+# some pre var 
+export NG_OUTER_GIT_URL=$WORK_OUTER_GIT_HOST/hanxiaoxiang/ngconsole.git
+export NG_GIT_URL=$WORK_GIT_HOST:hanxiaoxiang/ngconsole.git
+export NG_RE_OUTER_GIT_URL=$WORK_OUTER_GIT_HOST/baiyu/ngconsole_resources.git
+export NG_RE_GIT_URL=$WORK_GIT_HOST:baiyu/ngconsole_resources.git
+export NC_OUTER_GIT_URL=$WORK_OUTER_GIT_HOST/zhangyao/new-vdi-client.git
+export NC_GIT_URL=$WORK_GIT_HOST:zhangyao/new-vdi-client.git
+
+# prefix 定义前缀路径
+
+# /mnt/d/work
+# ~/code
+
+# windows 10 WSL
+export WORK_HOME=/mnt/d/work
+export NG_HOME=$WORK_HOME/ngconsole
+export NG_RE_HOME=$WORK_HOME/ngconsole_resources
+
+# WSL 配置相关路径
+
+export XDG_WORK_HOME=$HOME/code
+export XDG_HOME=$HOME
+
+export XDG_CONFIG_HOME=$HOME/.config
+export LOCALBIN=$XDG_CONFIG_HOME/bin
+export XDG_NVIM_HOME=$XDG_CONFIG_HOME/nvim
+export XDG_RANGER_HOME=$XDG_CONFIG_HOME/ranger
+export XDG_ZSH_HOME=$XDG_CONFIG_HOME/zsh
+export XDG_LAZYGIT_CONFIG_HOME=$XDG_CONFIG_HOME/jesseduffield/lazygit
+
+# 环境变量end==========================================================
+
+# 别名 start==========================================================
+# ls,clear
+    alias cls="clear"
+    alias c="clear"
+    alias l="ls -la"
+    alias ll="ls -la --color=auto"
+    alias la="ls -a --color=auto"
+    if [ -x /usr/bin/dircolors  ]; then
+        test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+        alias ls="ls --color=auto"
+    fi
+    alias lsa="ls -la --color=auto"
+
+    # action
+    alias rm="rm -i"
+    alias grep="grep --color=auto"
+    alias vi="vim"
+    alias nvi="nvim"
+    alias diff="vimdiff"
+    alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
+    alias ra="ranger"
+    alias hs="http-server"
+    alias cdiff="colordiff"
+
+    # git alias
+    alias gc="git config credential.helper store"
+    alias gg="git clone"
+    alias gs="git status"
+    alias gd="git diff"
+    alias gpl="git pull --rebase"
+    alias gpu="git push"
+    alias gau="git add -u"
+
+    # npm and yarn
+    alias ns="npm start"
+    alias ys="yarn run serve"
+
+    # proxy
+    # default socks5 
+    alias setproxy="export ALL_PROXY=socks5://127.0.0.1:10808"
+    # company socks5 ssh tunnel
+    alias setproxy1="export ALL_PROXY=socks5://59.175.233.194:8181"
+    # reset proxy
+    alias unsetproxy="unset ALL_PROXY"
+
+    alias cip="curl -i http://ip.cn"
+
+    alias gw="cd /mnt/d/work"
+
+# alias show-last-tag=git describe --tags `git rev-list --tags --max-count=1` #这个代码一直报错  因为读取到这里时，代码会首先执行rev-list --tags --max-count=1
+    alias chng="git remote set-url origin $NG_OUTER_GIT_URL"
+    alias chng1="git remote set-url origin $NG_GIT_URL"
+    alias chre="git remote set-url origin $NG_RE_OUTER_GIT_URL"
+    alias chre1="git remote set-url origin $NG_RE_GIT_URL"
+    alias chnv="git remote set-url origin $NC_OUTER_GIT_URL"
+    alias chnv1="git remote set-url origin $NC_GIT_URL"
+
+    alias g188="ssh root@172.16.201.188"
+
+    # walk work dir
+    alias gh="cd $WORK_HOME"
+    alias gng="cd $WORK_HOME/ngconsole"
+    alias gnr="cd $WORK_HOME/ngconsole_resources"
+    alias gnf="cd $WORK_HOME/region-front"
+    alias gnc="cd $WORK_HOME/oefe-docs"
+    alias gnv="cd $WORK_HOME/new-vdi-client"
+    alias gnl="cd $WORK_HOME/vdi-client-release"
+
+    # walk XDG config dir
+    alias gfn="cd $XDG_NVIM_HOME"
+    alias gfr="cd $XDG_RANGER_HOME"
+    alias gfz="cd $XDG_ZSH_HOME"
+    alias gfl="cd $XDG_LAZYGIT_CONFIG_HOME"
+
+    alias gi="cd $XDG_HOME/Github"
+    alias gnd="cd $XDG_HOME/Desktop"    
+    alias gD="cd $XDG_HOME/Downloads"
+    alias gff="cd $XDG_HOME/.config"
+
+    alias lg="lazygit"
+    alias vpc="gng;git checkout 5.3.0-vpc-feature;gnr;git checkout 5.3.0-vpc;gng;"
+    alias vdi="gng;git checkout 5.3.0-bug;gnr;git checkout 5.3.0;gng;"
+    alias client="vpc;gnl;git checkout 5.3.0-uos;gnv;git checkout 5.3.0-uos;"
+    # TODO:bash脚本 方法 获取url，设置url为远程或者局域网
+    # function set_branch_url {
+    #     array=("ngconsole" "ngconsole_resources" "new-vdi-client" "vdi-client-release")
+    #     for i in ${array[@]}
+    #     do  
+    #         echo $i;
+    #         echo git remote set-url origin 
+    #     done
+    # }
+    # set_branch_url
+
+prompt_context() {}
+
+# fzf
+source ~/.config/zsh/fzf.zsh
+# source ~/.config/zsh/key-bindings.zsh
+source ~/.config/zsh/completion.zsh
+
+# open home directory
+cd /mnt/d/work
+
+# lazygit c-g shortcut
+function zle_eval {
+    echo -en "\e[2K\r"
+    eval "$@"
+    zle redisplay
+}
+
+function openlazygit {
+    zle_eval lazygit
+}
+
+zle -N openlazygit; bindkey "^G" openlazygit
+
+# fzf
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash 这句话应该运行在bash上面估计是因为不zsh语法不兼容，所以不应该出现在这里20210425
+export GOROOT=/usr/local/go #GOROOT是系统上安装Go软件包的位置。
+export GOPATH=/home/hadoop/GOPATH #GOPATH是工作目录的位置。
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+# [ -z "$ZSH_NAME" ] && [ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -1,0 +1,10 @@
+function run() {
+    return [
+        "background background-attachment background-clip background-image background-origin background-position background-position-x background-position-y background-repeat background-size border border-bottom border-bottom-color border-bottom-left-radius border-bottom-right-radius border-bottom-style border-bottom-width border-color border-image border-image-outset border-image-repeat border-image-slice border-image-source border-image-width border-left border-left-color border-left-width border-radius border-right border-right-color border-right-style border-right-width border-style border-top border-top-color border-top-left-radius border-top-right-radius border-top-style border-top-width border-width box-shadow",
+        "line-break overflow-wrap tab-size text-align text-align-last text-indent text-justify text-transform white-space word-break word-spacing word-wrap text-decoration text-decoration-color text-decoration-line text-decoration-skip text-decoration-skip-ink text-decoration-style text-decoration-thickness text-emphasis text-emphasis-color text-emphasis-position text-emphasis-style text-shadow text-underline-offset text-underline-position",
+        "margin padding margin-top margin-left margin-bottom margin-right padding-top padding-left padding-bottom padding-right",
+        "align-content align-items align-self flex flex-basis flex-direction flex-flow flex-grow flex-shrink flex-wrap justify-content min-width order visibility",
+        "overflow overflow-block overflow-inline overflow-x overflow-y text-overflow",
+        "animation animation-delay animation-direction animation-duration animation-fill-mode animation-iteration-count animation-name animation-play-state animation-timing-function transition transition-delay transition-duration transition-property transition-timing-function"
+    ].join(" ").split(" ");
+}

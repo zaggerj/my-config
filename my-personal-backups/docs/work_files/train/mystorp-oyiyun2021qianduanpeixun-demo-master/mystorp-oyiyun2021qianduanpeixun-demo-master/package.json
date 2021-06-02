@@ -1,0 +1,22 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "guard.js",
+  "scripts": {
+    "test": "node guard.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://e.coding.net/mystorp/oyiyun2021qianduanpeixun/demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdom": "^16.5.3"
+  },
+  "dependencies": {
+    "chai": "^4.3.4"
+  }
+}

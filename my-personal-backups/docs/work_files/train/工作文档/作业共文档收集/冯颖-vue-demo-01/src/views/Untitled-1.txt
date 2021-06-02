@@ -1,0 +1,92 @@
+{
+    a:7,
+    arr: []
+}
+
+
+.a = 8
+.arr = [1]
+.arr.splice(0, .arr.length, ...selection)
+
+.arr[0]=1
+
+<template>
+    <div class="web">
+        <div class="head">
+            <img src="http://172.16.55.99:8080/img/logo/user.png" />
+        </div>
+
+        <div class="headText">
+            <div class="headAText">服务申请</div>
+            <div class="headAText">桌面服务</div>
+            <div class="headAText">应用服务</div>
+            <div class="headAText">课程下载</div>
+            <div class="headAText">个人中心</div>
+            <div class="headAText">帮助中心</div>
+            <div class="headAText">首页</div>
+        </div>
+        <div class="user">
+            <div class="userImage"></div>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        data() {
+            return {};
+        },
+        methods: {},
+    };
+</script>
+<style>
+    * {
+        margin: 0 auto;
+        padding: auto;
+    }
+
+    .web {
+        background: red;
+        width: 100%;
+        height: 1000px;
+        display: flex;
+    }
+
+    .head {
+        background: orange;
+        width: 500px;
+        height: 60px;
+        margin-left: 10px;
+        margin-top: 5px;
+        display: flex;
+    }
+
+    .headText {
+        margin-top: 5px;
+        background: yellow;
+        width: 700px;
+        height: 60px;
+        float: right;
+    }
+
+    .headAText {
+        width: 70px;
+        height: 40px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-right: 20px;
+        background: green;
+        float: right;
+        text-align: center;
+    }
+
+    .user {
+        width: 100px;
+        height: 40px;
+        background: blue;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        float: right;
+    }
+</style>
+

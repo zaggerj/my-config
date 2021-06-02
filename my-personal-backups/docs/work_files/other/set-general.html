@@ -1,0 +1,497 @@
+<div data-widget-grid class="jarviswidget custom-grey-area" style="margin-top: 15px;">
+    <!-- widget div-->
+    <div class="noborder sysSet logoCustom">
+        <div class="widget-body no-padding">
+            <div ng-controller="ConfigIdentifyCtrl" style="clear: both;">
+                <h4 localize="配置认证服务器"></h4>
+                <span class="desk-border">&nbsp;</span>
+                <div class="form-group">
+                    <section class="outside">
+                        <form class="form-horizontal" name="configIdentifyForm" method="post" novalidate>
+                            <div class="form-group">
+                                <label class="control-label col-xs-1 required" localize="服务器地址"></label>
+                                <div class="col-xs-2" style="padding-left: 0">
+                                    <input type="text" class="form-control" required ng-model="m.host" ng-disabled="!m.editable" format-ip>
+                                </div>
+                                <label class="control-label col-xs-1 required" style="float: left;width: auto;" localize="端口"></label>
+                                <div class="col-xs-1" style="padding-left: 0;">
+                                    <input class="form-control" type="number" min="1" max="65535" ng-pattern="/^([0]|[1-9][0-9]*)$/" name="port" required ng-model="m.port" ng-disabled="!m.editable">
+                                </div>
+                                <button ng-show="!m.editable" class="btn btn-default" ng-click="m.editable = true" localize="修改"></button>
+                                <button ng-show="m.editable" class="btn btn-default" ng-click="identify()"
+                                    ng-disabled="configIdentifyForm.$invalid">
+                                    <img ng-if="m.loading" src="img/ajax-loader.gif" height="16" width="16">
+                                    <span localize="保存"></span>
+                                </button>
+                                <button ng-show="m.editable" class="btn btn-default" ng-click="cancel()" localize="取消"></button>
+                                <button class="btn btn-default" ng-disabled="m.editable || !validForRelease()" ng-click="release()" localize="解除认证服务器"></button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+
+            <div ng-controller="voiSettingUnlockController" style="clear: both;">
+                <h4 localize='随机密码'></h4>
+                <span class="desk-border">&nbsp;</span>
+
+                <div class="row" style="margin: 0 0 25px 0;">
+                    <div class="col-xs-12 voi-unlock-code-box">
+                        <div class="well" ng-repeat="item in init.codes track by $index">
+                            <i class="fa fa-circle" ng-if="item==='-'"
+                               style="position: absolute;left: 8px;top: 4px;"></i>
+                            <span ng-if="item !=='-'" ng-bind="item"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <button type="button" class="btn btn-default"
+                                ng-disabled="init.seconds !==0"
+                                ng-click="onClickShowCode()"
+                                localize="获取客户端随机密码" param1="{{init.showTimer}}"></button>
+                    </div>
+                </div>
+                <div class="row" style="margin:0 0 25px 0;">
+                    <div class="col-xs-12" localize="随机密码提示文本">
+                    </div>
+                </div>
+            </div>
+
+            <div ng-controller="vmhaQuorumIpCtrl" style="clear: both;">
+                <h4 localize='仲裁IP设置'></h4>
+                <span class="desk-border">&nbsp;</span>
+                <form class="form-horizontal" name="vmhaQuorumIpForm" novalidate>
+                    <div class="form-group">
+                        <label class="control-label col-xs-1 required" data-localize="仲裁IP"></label>
+                        <div class="col-xs-2" style="padding-left: 0">
+                            <input class="form-control" type="text" name="IP" format-ip ng-model="IP"
+                                ng-disabled="!is_modify || is_check_ping || is_ip_valid">
+                        </div>
+                        <div class="col-xs-9" style="padding-left: 0;">
+                            <button class="btn btn-default"
+                                ng-if="!is_modify"
+                                ng-disabled="ip_loading"
+                                ng-click="toggleModify(true)" localize="更改"></button>
+                            <button class="btn btn-default"
+                                ng-if="is_modify"
+                                ng-disabled="is_check_ping || vmhaQuorumIpForm.$invalid"
+                                ng-click="checkPing()" localize="测试连接"></button>
+                            <button class="btn btn-default"
+                                ng-if="is_modify"
+                                ng-disabled="save_loading || !is_ip_valid"
+                                ng-click="save()">
+                                <span ng-if="!save_loading" localize="保存"></span>
+                                <img  ng-if="save_loading"  ng-src="img/loadingtext.gif" width="16px" height="16px"/>
+                                <span ng-if="save_loading"  localize="检测中"></span>
+                            </button>
+                            <button class="btn btn-default"
+                                ng-if="is_modify"
+                                ng-disabled="is_check_ping || save_loading"
+                                ng-click="toggleModify(false)" localize="取消"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div ng-controller="vdiSystemtimeSyncController as SyncCtrl" style="clear: both;">
+                <h4 style="display: inline-block;" localize='时间同步'></h4>
+                <a href="javascript:void(0);" rel="popover-hover" localize-tip='时间同步提示'
+                   data-placement="bottom" data-html="true" data-content=""
+                   data-original-title="" title=""><i class="fa fa-question-circle"></i></a>
+                <span class="desk-border">&nbsp;</span>
+                <div class="form-group">
+                    <section class='timeSync'>
+                        <form class="form-horizontal" name="timeSyncFrom" style="float: left;" novalidate>
+                            <div class='col-xs-5'>
+                                <label class="control-label" for="time" localize="时区"></label>
+                                <select style="margin: 10px 0;" class="form-control" ng-disabled='!SyncCtrl.modifyTime'
+                                        ng-model="SyncCtrl.zone"
+                                        data-ng-options="'('+zone.offset+') '+zone.value for zone in SyncCtrl.zones"></select>
+                                <div class='col-xs-12' style="padding: 0">
+                                    <div class="col-xs-6" style="padding-left: 0">
+                                        <p class="input-group" style="margin: 0">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default"
+                                                        ng-disabled='!SyncCtrl.modifyTime'
+                                                        data-ng-click="SyncCtrl.openStartDate($event)"><i
+                                                        class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                            <input type="text" scheduler-input placeholder="yyyy-mm-dd"
+                                                   class="form-control"
+                                                   datepicker-popup="yyyy-MM-dd" data-ng-model="SyncCtrl.choose_time"
+                                                   is-open="SyncCtrl.startDateOpened"
+                                                   datepicker-options="SyncCtrl.startDateOptions"
+                                                   show-weeks="false" show-button-bar="false" required
+                                                   ng-disabled='!SyncCtrl.modifyTime'>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-2 hour">
+                                        <input input-number class="form-control" type="text"
+                                               data-ng-pattern="/^(0[0-9]|[0-9]|1[0-9]|2[0-3])$/"
+                                               maxlength="2" min="0" max="23" required ng-model="SyncCtrl.hours"
+                                               ng-disabled='!SyncCtrl.modifyTime' ng-change='SyncCtrl.loopTime=false'/>
+                                    </div>
+                                    <div class="col-xs-2 minute">
+                                        <input input-number class="form-control" type="text"
+                                               data-ng-pattern="/^(0[0-9]|[0-9]|[1-5][0-9])$/"
+                                               maxlength="2" min="0" max="59" required ng-model="SyncCtrl.minutes"
+                                               ng-disabled='!SyncCtrl.modifyTime' ng-change='SyncCtrl.loopTime=false'/>
+                                    </div>
+                                    <div class="col-xs-2 second">
+                                        <input input-number class="form-control"
+                                               data-ng-pattern="/^(0[0-9]|[0-9]|[1-5][0-9])$/"
+                                               maxlength="2" min="0" max="59" required ng-model="SyncCtrl.seconds"
+                                               ng-disabled='!SyncCtrl.modifyTime' type="text"
+                                               ng-change='SyncCtrl.loopTime=false'/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 text-right" style="padding: 0;margin: 15px 0 20px 0">
+                                    <img src="img/loadingtext.gif" data-ng-if="SyncCtrl.updating_zone" height="24"
+                                         width="24" alt="">
+                                    <button class="btn btn-default"
+                                            data-ng-disabled='SyncCtrl.loading_zone || SyncCtrl.loading_internet || SyncCtrl.loading_updateServer'
+                                            ng-if="!SyncCtrl.modifyTime" ng-click="SyncCtrl.modifyTime = true"
+                                            localize="更改"></button>
+                                    <button class="btn btn-default"
+                                            data-ng-disabled='!SyncCtrl.hours || !SyncCtrl.minutes || !SyncCtrl.seconds || !matchInput'
+                                            ng-if="SyncCtrl.modifyTime && !SyncCtrl.updating_zone"
+                                            ng-click="SyncCtrl.updateZone()"
+                                            localize="保存"></button>
+                                    <button class="btn btn-default"
+                                            ng-if="SyncCtrl.modifyTime && !SyncCtrl.updating_zone"
+                                            ng-click="SyncCtrl.modifyTime = false;SyncCtrl.loadZone()" localize="取消"
+                                            style="margin-left: 10px"></button>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-xs-offset-1 server">
+                                <div class="col-xs-12">
+                                    <label>
+                                        <input class="checkbox" type="checkbox" name="start"
+                                               ng-model="SyncCtrl.internetSync"
+                                               ng-disabled="SyncCtrl.loading_internet || SyncCtrl.loading_updateServer"
+                                               ng-change='SyncCtrl.setInternetSync(SyncCtrl.internetSync)'>
+                                        <span localize="与Internet时间服务器同步(s)"></span>
+                                    </label>
+                                    <img ng-if="SyncCtrl.loading_internet" src="img/loadingtext.gif" height="12"
+                                         width="12">
+                                </div>
+                                <div class="col-xs-12">
+                                    <label class="col-xs-3 control-label" style="white-space: nowrap;" for="network"
+                                           data-localize="服务器(E):"></label>
+                                    <div class="col-xs-6">
+                                        <select class="form-control inline"
+                                                data-ng-options="server for server in SyncCtrl.servers"
+                                                ng-model="SyncCtrl.server" ng-disabled='SyncCtrl.loading_updateServer'>
+                                            <!-- <option value="" localize="请选择"></option> -->
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <img ng-if='SyncCtrl.loading_updateServer' src="img/loadingtext.gif" height="24"
+                                             width="24">
+                                        <button ng-if='!SyncCtrl.loading_updateServer'
+                                                class="btn btn-default immediateSync"
+                                                ng-click="SyncCtrl.updateSyncServer()" localize="立即同步"></button>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12" style="margin: 15px 0 20px 0">
+                                    <label class="col-xs-3 control-label" style="white-space: nowrap;" for="network"
+                                        data-localize="同步设置："></label>
+                                    <div class="col-xs-6">
+                                        <select class="form-control inline"
+                                                data-ng-options="settingSync.name for settingSync in SyncCtrl.settingSyncs"
+                                                ng-model="SyncCtrl.settingSync" ng-disabled='!SyncCtrl.sync_disableSetting'>
+                                            <!-- <option value="" localize="请选择"></option> -->
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <img src="img/loadingtext.gif" data-ng-if="SyncCtrl.updating_zone" height="24"
+                                            width="24" alt=""> 
+                                        <button class="btn btn-default"
+                                                data-ng-disabled='SyncCtrl.sync_disableSetting'
+                                                ng-if="!SyncCtrl.sync_disableSetting" ng-click="SyncCtrl.sync_disableSetting = true"
+                                                localize="更改"></button>
+                                        <button class="btn btn-default"
+                                                data-ng-disabled='!SyncCtrl.sync_disableSetting'
+                                                ng-if="SyncCtrl.sync_disableSetting"
+                                                ng-click="SyncCtrl.sync_disableSetting = false; SyncCtrl.handleSyncClick()"
+                                                localize="保存"></button>
+                                        <button class="btn btn-default"
+                                                ng-if="SyncCtrl.sync_disableSetting"
+                                                ng-click="SyncCtrl.handleSyncCancel()" localize="取消"
+                                                style="margin-left: 10px"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+            <div ng-controller="vdiSystemOutsideController" style="clear: both;">
+                <h4 localize='网络管理'></h4>
+                <span class="desk-border">&nbsp;</span>
+                <div class="form-group">
+                    <div class="col-xs-6">
+                    <section class='outside'>
+                        <form class="form-horizontal" name="outsideFrom" method="post" ng-submit="outsideFrom.$valid"
+                            novalidate>
+                            <div class="form-group">
+                                <label class="control-label col-xs-1"></label>
+                                <label class="control-label">
+                                    <input type="checkbox" data-ng-disabled="save_loading" class="checkbox"
+                                        data-ng-change="start()" data-ng-model="enable">
+                                    <span data-localize="启用"></span>
+                                    <img ng-show="enable_loading" ng-src="img/loadingtext.gif" width="16px" height="16px" />
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-3" data-localize="外网访问IP"></label>
+                                <div class="col-xs-5" style="padding-left: 0"
+                                    data-ng-class="{'state-success':outsideFrom.IP.$valid && outsideFrom.IP.$dirty,'state-error':outsideFrom.IP.$invalid && outsideFrom.IP.$dirty, 'state-disabled': !enable}">
+                                    <input class="form-control" type="text" name="IP" format-ip ng-model="IP">
+                                </div>
+                                <div>
+                                    <button type="submit" name="button" disabled="disabled" class="btn btn-default"
+                                        data-ng-disabled="outsideFrom.$invalid || !IP || !enable || enable_loading || save_loading || ips_loading"
+                                        data-ng-click="save()" data-localize="保存"></button>
+                                    <img ng-show="save_loading" ng-src="img/loadingtext.gif" width="16px" height="16px" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-1"></label>
+                                <button class="btn btn-default"
+                                    data-ng-disabled="outsideFrom.$invalid || !IP  || !enable || enable_loading || save_loading"
+                                    data-dialog="outsideAdvancedDialog" data-dialog-size="sm"
+                                    data-dialog-url="system/outside_advanced.html" data-localize="高级"></button>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-1"></label>
+                                <div class="col-xs-9" style="padding-left: 0">
+                                    <div class="tip" data-localize='OUTER_IP_NOTE'></div>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                    </div>
+                    <div class="col-xs-6" style="padding-top: 39px;">
+                        <form class="form-horizontal" name="portSetForm">
+                            <div class="form-group">
+                                <label class="control-label col-xs-4" data-localize="管理台服务端口"></label>
+                                <div class="col-xs-3" style="padding-left: 0;">
+                                    <input class="form-control" type="number" min="1" max="65535" name="port" ng-model="http_port" required
+                                        data-ng-disabled="query_port_Loading || save_port_loading">
+                                </div>
+                                <div class="col-xs-3" style="padding-left: 0;">
+                                    <button type="submit" name="button" class="btn btn-default" data-ng-disabled="save_port_loading || !portSetForm.$valid" data-ng-click="savePort()" data-localize="保存"></button>
+                                    <img ng-show="save_port_loading" ng-src="img/loadingtext.gif" width="16px" height="16px" />
+                                </div>                            
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-4"></label>
+                                <div class="col-xs-8" style="padding-left: 0;">
+                                    <span style="color: #999;" data-localize="管理台服务端口提示"></span>
+                                </div>                         
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div ng-controller="voiSettingFlowController" style="clear: both;" ng-if="productTypeKeys.includes('voi') || productTypeKeys.includes('idv')">
+                <h4 localize="下发速度限制"></h4>
+                <span class="desk-border">&nbsp;</span>
+
+                <form class="form-horizontal form-pl25">
+
+                    <fieldset ng-disabled="init.editType !== 'voi_io'">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <h4 localize="全局服务端限速"></h4>
+                                    <label class="control-label" localize="上行速率限制"></label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" placeholder=""
+                                               ng-model="m.io.server_up" input-number ng-pattern="/^[0-9]*$/">
+                                        <div class="input-group-addon">MB/s</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4 localize="全局终端限速"></h4>
+                                    <label class="control-label" localize="上行速率限制"></label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" placeholder=""
+                                               ng-model="m.io.client_up" input-number ng-pattern="/^[0-9]*$/">
+                                        <div class="input-group-addon">MB/s</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label" localize="下行速度限制"></label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" placeholder=""
+                                               ng-model="m.io.server_down" input-number ng-pattern="/^[0-9]*$/">
+                                        <div class="input-group-addon">MB/s</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="control-label" localize="下行速度限制"></label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" placeholder=""
+                                               ng-model="m.io.client_down" input-number ng-pattern="/^[0-9]*$/">
+                                        <div class="input-group-addon">MB/s</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-8" localize="{{ PROD.isArm ? '下发速度VOIVDI限制提示_ARM' : '下发速度VOIVDI限制提示' }}">请根据实际需求和网络环境设置，不填写或填写0表示不限制</div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-8" ng-if="init.editType === 'voi_io'" style="text-align: right;">
+                            <button ng-disabled="setVoiForm.$invalid || init.isLoading" class="btn btn-default"
+                                    ng-click="onClickSave('voi_io')"
+                                    localize="保存"></button>
+                            <button ng-disabled="init.isLoading" class="btn btn-default"
+                                    ng-click="onClickCancel('voi_io')"
+                                    localize="取消"></button>
+                        </div>
+                        <div class="col-md-4"></div>
+                    </fieldset>
+                    <div class="row">
+                        <div class="col-md-8" ng-if="init.editType !== 'voi_io'" style="text-align: right;">
+                            <button ng-disabled="init.isLoading" class="btn btn-default"
+                                    ng-click="onClickEditType('voi_io')"
+                                    localize="修改"></button>
+                        </div>
+                        <div class="col-md-4"></div>
+
+                    </div>
+
+                </form>
+
+
+            </div>
+            <!-- 配置邮箱服务器 -->
+            <div class="system-email-settings" ng-controller="vdiSystemEmailController" style="clear: both;">
+                <h4 localize="配置邮箱服务器"></h4>
+                <span class="desk-border">&nbsp;</span>
+                <form class="form-inline form-pl25" name="ConfigEmailForm">
+                    <div class="form-group" style="display: block;">
+                        <label>
+                            <input type="checkbox" class="checkbox" ng-disabled="!m.editable" ng-model="m.data.bind_email_server">
+                            <span>启用</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label localize="发件服务器地址" class="required"></label>
+                        <input type="text" class="form-control" ng-disabled="!m.editable" ng-model="m.data.smtp_server" required/>
+                    </div>
+                    <div class="form-group mh20">
+                        <label class="required" localize="端口"></label>
+                        <input type="number" max="65535" min="0" ng-pattern="/^([0]|[1-9][0-9]*)$/" class="form-control" ng-disabled="!m.editable" ng-model="m.data.smtp_port" required/>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" class="checkbox" ng-disabled="!m.editable" ng-model="m.data.ssl_enabled">
+                            <span>SSL</span>
+                        </label>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label class="required" localize="发件人账号"></label>
+                        <input type="text" class="form-control" ng-pattern="/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/" ng-disabled="!m.editable" ng-model="m.data.smtp_username" required/>
+                    </div>
+                    <div class="form-group mh20">
+                        <label class="required" localize="发件人密码"></label>
+                        <input type="password" class="form-control" ng-disabled="!m.editable" ng-model="m.data.smtp_password" required/>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label localize="测试邮件地址"></label>
+                        <textarea style="width: 300px;" textarea-email class="form-control" rows="4" ng-disabled="!m.editable" ng-model="m.data.sendto" localize-placeholder="MONITOR_EMAILL_MESS"></textarea>
+                        <button class="btn btn-default mh20" ng-click="test()" ng-disabled="!m.editable || ConfigEmailForm.$invalid || m.data.sendto.length === 0" localize="发送测试邮件"></button>
+                    </div>
+                    <br/>
+                    <label></label>
+                    <button class="btn-default btn" type="button" ng-show="!m.editable" ng-click="m.editable = true" data-localize="修改"></button>
+                    <button class="btn-default btn" type="button" ng-show="m.editable" ng-click="save()"
+                        ng-disabled="ConfigEmailForm.$invalid">
+                        <img ng-if="m.loading" src="img/ajax-loader.gif" height="16" width="16">
+                        <span data-localize="保存"></span>
+                    </button>
+                    <button class="btn-default btn" type="button" ng-show="m.editable" ng-click="cancel()" data-localize="取消"></button>
+                </form>
+            </div>
+
+            <div ng-controller="logoCustome" style="clear: both;">
+                <h4 localize='自定义系统logo'></h4>
+                <span class="desk-border">&nbsp;</span>
+                <form class="form-horizontal form-pl25">
+                    <div class="form-group">
+                        <div class="inline-b-md">
+                            <h5 class="left-title" data-localize="浏览器地址栏LOGO"></h5>
+                            <div class="left-tips" data-localize="CUSTOM_ICO_TIP"></div>
+                            <div class="inline-b-md">
+                                <button class="btn btn-default" id="locationUpLoader" ui-upload="image"
+                                        ui-upload-options="locationOpt">
+                                    <span data-localize="修改"></span>
+                                </button>
+                                <button class="btn btn-default" data-ng-click="recoverLocationLogo()"
+                                        localize="恢复默认值"></button>
+                            </div>
+                            <img class="img-bg ico" src="./favicon.ico?v={{productVersion}}" style="width: 16px; height: 16px;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="inline-b-md">
+                            <h5 class="left-title" data-localize="平台页面LOGO"></h5>
+                            <div class="left-tips" data-localize="CUSTOM_PNG_TIP"></div>
+                            <div class="inline-b-md">
+                                <button class="btn btn-default" id="headerUploader" ui-upload="image"
+                                        ui-upload-options="headerOpt">
+                                    <span data-localize="修改"></span>
+                                </button>
+                                <button class="btn btn-default" data-ng-click="recoverHeaderLogo()"
+                                        localize="恢复默认值"></button>
+                            </div>
+                            <!-- *logoUrl -->
+                            <img class="img-bg" ng-src="{{logoUrl}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="inline-b-md">
+                            <h5 class="left-title" data-localize="门户界面"></h5>
+                            <div class="left-tips" data-localize="CUSTOM_LOGIN_BG_TIP"></div>
+                            <div class="inline-b-md">
+                                <button class="btn btn-default" id="loginMaskerUploader" ui-upload="image"
+                                        ui-upload-options="loginMaskerOpt">
+                                    <span data-localize="修改"></span>
+                                </button>
+                                <button class="btn btn-default" data-ng-click="recoverLoginMaskerLogo()"
+                                        localize="恢复默认值"></button>
+                            </div>
+                            <img class='img-bg' style="max-width: 500px; max-height: 60px;" ng-src="{{'/resources/' + productVersion + '/login_bg.png'}}">
+                        
+
+                        </div>
+                    </div>
+                    <!--<div class="form-group">
+                        <div class="col-xs-5 inline-b-md">
+                            <h5 class="left-title" data-localize="终端登录界面LOGO"></h5>
+                            <div class="left-tips" data-localize="CUSTOM_PNG_TIP"></div>
+                            <img class='img-bg' ng-src="{{'/resources/pkg/' + productVersion + '/clientLogo.png'}}">
+                        </div>
+                        <div class="col-xs-5 inline-b-md">
+                            <button class="btn btn-default" id="clientUploader" ui-upload="image"
+                                    ui-upload-options="clientOpt">
+                                <span data-localize="修改"></span>
+                            </button>
+                            <button class="btn btn-default" data-ng-click="recoverClientLogo()"
+                                    localize="恢复默认值"></button>
+                        </div>
+                    </div>-->
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- widget div end -->
+</div>
+
