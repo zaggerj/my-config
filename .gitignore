@@ -1,3 +1,4 @@
+.DS_Store
 coc/
 configstore/
 .dropbox
@@ -5,4 +6,3 @@ configstore/
 desktop.ini
 jesseduffield/lazygit/
 !jesseduffield/lazygit/*.yml
-.DS_Store
